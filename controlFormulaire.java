@@ -44,10 +44,6 @@ public class controlFormulaire {
         prenom.setText("");
         naissance.setText("");
         
-        // Définition de l'action du bouton de validation
-        Ajouter.setOnAction(e -> {
-            ajouter(MouseEvent event);
-        });
     }
     
     @FXML
@@ -67,10 +63,10 @@ public class controlFormulaire {
             formulaireValide = false;
             afficherErreur ("le prenom est obligatoire");
         }
-        if (naissance.isEmpty()){
-            formulaireValide = false;
-            afficherErreur ("l'année de naissance est obligatoire");
-        }
+        // if (naissance.isEmpty()){
+            // formulaireValide = false;
+            // afficherErreur ("l'année de naissance est obligatoire");
+        // }
         
         //si le formulaire est valide, procéder à l'inscription
         if (formulaireValide){
