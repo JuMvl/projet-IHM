@@ -54,7 +54,7 @@ public class page_accueil {
      * When this method is called, it will change the Scene 
      * to the page d'accueil scene
      */
-    public void changeScreenButtonPushed(ActionEvent event)
+    public void switchToListeEtu(ActionEvent event)
     {
         try
             {
