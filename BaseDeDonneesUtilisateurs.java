@@ -19,8 +19,8 @@ public class BaseDeDonneesUtilisateurs {
     private BaseDeDonneesUtilisateurs() {
         // initialisation de la connexion à la base de données
         try {
-            Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection("jdbc:sqlite:utilisateurs.db");
+            Class.forName("oracle.jdbc.OracleDriver");
+            connection = DriverManager.getConnection("jdbc:oracle:thin:@[host]:[port]:[schema]");
             String sql = "CREATE TABLE IF NOT EXISTS utilisateurs (id INTEGER PRIMARY KEY AUTOINCREMENT, nom TEXT, prenom TEXT, naissance INTEGER)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.execute();
