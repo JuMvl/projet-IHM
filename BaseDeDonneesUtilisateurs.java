@@ -29,5 +29,17 @@ public class BaseDeDonneesUtilisateurs {
         }
     }
     
-    
+    // méthode pour ajouter un utilisateur à la base de données
+    public void ajouterUtilisateur(Utilisateur utilisateur) {
+        try {
+            String sql = "INSERT INTO utilisateurs (nom, prenom, naissance) VALUES (?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, utilisateur.getNom());
+            statement.setString(2, utilisateur.getPrenom());
+            statement.setInt(3, utilisateur.getNaissance());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
