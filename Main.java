@@ -26,8 +26,9 @@ import javafx.scene.layout.AnchorPane;
  */
 public class Main extends Application {
     private Stage primaryStage;
-    private BorderPane rootLayout;
+    private BorderPane root;
     
+
     @Override
     public void start(Stage primaryStage) throws Exception
     {
@@ -37,6 +38,11 @@ public class Main extends Application {
         initRootLayout();
     }
      
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
+    
+
     /**
      * Initializes the root layout
      */
@@ -44,8 +50,8 @@ public class Main extends Application {
         
         try
         {
-            Parent root = FXMLLoader.load(getClass().getResource("page_liste_etu.fxml"));
-             Scene scene = new Scene (rootLayout);// JavaFX must have a Scene (window content) inside a Stage (window)
+            Parent root = FXMLLoader.load(getClass().getResource("page_accueil.fxml"));
+            Scene scene = new Scene (root);// JavaFX must have a Scene (window content) inside a Stage (window)
             // Création de la scène (avec des dimensions correspondant à une résolution HD), composé uniquement d'une étiquette affichant du texte
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -57,32 +63,29 @@ public class Main extends Application {
         }// Building the FXML hierarchy
         
     }
-    /**
-     * Shows the person overview inside the root layout.
-     */
-    public void showPersonOverview() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/PersonOverview.fxml"));
-            AnchorPane personOverview = (AnchorPane) loader.load();
+    // /**
+     // * Shows the person overview inside the root layout.
+     // */
+    // public void showPersonOverview() {
+        // try {
+            // // Load person overview.
+            // FXMLLoader loader = new FXMLLoader();
+            // loader.setLocation(Main.class.getResource("view/PersonOverview.fxml"));
+            // AnchorPane personOverview = (AnchorPane) loader.load();
             
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+            // // Set person overview into the center of root layout.
+            // rootLayout.setCenter(personOverview);
+        // } catch (IOException e) {
+            // e.printStackTrace();
+        // }
+    // }
     
-    /**
-     * Returns the main stage.
-     * @return
-     */
-    public Stage getPrimaryStage() {
-        return primaryStage;
-    }
+    // /**
+     // * Returns the main stage.
+     // * @return
+     // */
+    // public Stage getPrimaryStage() {
+        // return primaryStage;
+    // }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 }
