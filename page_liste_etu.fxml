@@ -26,12 +26,12 @@
                <children>
                   <ImageView fitHeight="118.0" fitWidth="166.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <image>
-                        <Image url="@upwpa512.png" />
+                        <Image url="@img/upwpa512.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="107.0" fitWidth="158.0" layoutX="424.0" layoutY="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <image>
-                        <Image url="@Unknown.png" />
+                        <Image url="@img/Unknown.png" />
                      </image>
                   </ImageView>
                </children>
@@ -131,32 +131,32 @@
                      <children>
                         <ImageView fitHeight="77.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
                            <image>
-                              <Image url="@logo1.png" />
+                              <Image url="@img/logo1.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="73.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <image>
-                              <Image url="@logo2.png" />
+                              <Image url="@img/logo2.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="73.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <image>
-                              <Image url="@logo4.jpg" />
+                              <Image url="@img/logo4.jpg" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="61.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <image>
-                              <Image url="@logo3.png" />
+                              <Image url="@img/logo3.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="67.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <image>
-                              <Image url="@logo5.png" />
+                              <Image url="@img/logo5.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="73.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <image>
-                              <Image url="@logo6.png" />
+                              <Image url="@img/logo6.png" />
                            </image>
                         </ImageView>
                      </children>

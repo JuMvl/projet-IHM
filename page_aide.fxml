@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="900.0" styleClass="theme" stylesheets="@test_projet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="page_accueil">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="900.0" styleClass="theme" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox maxHeight="1000.0" maxWidth="1440.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -44,22 +45,22 @@
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                      <Button fx:id="boutton_accueil" mnemonicParsing="false" onMouseClicked="#page_accueil" styleClass="buttonGridPane" text="Accueil" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                      <Button mnemonicParsing="false" styleClass="buttonGridPane" text="Accueil" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="boutton_formulaire_inscription" mnemonicParsing="false" onMouseClicked="#page_formulaire" styleClass="buttonGridPane" text="Formulaire d'inscription" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                        <Button mnemonicParsing="false" styleClass="buttonGridPane" text="Formulaire d'inscription" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="boutton_aide" mnemonicParsing="false" onMouseClicked="#page_aide" prefHeight="25.0" styleClass="buttonGridPane" text="Aide" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                        <Button mnemonicParsing="false" prefHeight="25.0" styleClass="buttonGridPane" text="Aide" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="boutton_liste_etu" mnemonicParsing="false" onAction="#changeScreenButtonPushed" onMouseClicked="#page_liste_etu" styleClass="buttonGridPane" text="Liste d'étudiants" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                        <Button mnemonicParsing="false" styleClass="buttonGridPane" text="Liste d'étudiants" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -70,25 +71,11 @@
             </AnchorPane>
             <ScrollPane prefHeight="531.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
               <content>
-                <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="732.0" prefWidth="884.0" styleClass="pane">
+                <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="884.0" styleClass="theme">
                      <children>
-                        <VBox prefHeight="731.0" prefWidth="884.0" styleClass="pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox prefHeight="784.0" prefWidth="885.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <ImageView fitHeight="461.0" fitWidth="885.0">
-                                       <image>
-                                          <Image url="@img/Capture%20d’écran%202023-03-16%20à%2014.53.26.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Text boundsType="LOGICAL_VERTICAL_CENTER" fill="#fdf7f7" layoutX="279.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Master IDLS" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="351.9840393066406" AnchorPane.leftAnchor="279.0" AnchorPane.rightAnchor="254.01596069335938">
-                                       <font>
-                                          <Font name="System Bold" size="64.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                              <TextArea prefHeight="283.0" prefWidth="884.0" styleClass="text-area" text="&#10;&#10;&#10;La mention Ingénierie de la Santé propose à ses étudiants d'acquérir des connaissances et des compétences techniques et méthodologiques leur permettant de devenir des acteurs de la biosanté tant en recherche appliquée, clinique ou préclinique qu’en informatique appliquée aux biotechnologies et à la biologie de la santé. Le monde de la recherche fondamentale en biosanté qui n’est pas prioritairement visé ici reste accessible pour les étudiants de cette mention." wrapText="true" VBox.vgrow="ALWAYS">
+                              <TextArea prefHeight="295.0" prefWidth="885.0" styleClass="text-area" text="&#10;Assitance - Guide d'utilisateur&#10;&#10;Bienvenue dans le guide utilisateur.&#10;&#10;Sur notre application, vous pouvez gérer tous les étudiants du Master Ingénierie de la Santé. &#10;&#10;La liste de l'ensemble des étudiants est disponible dans l'onglet ''Liste d'étudiants''. Sur cette page, vous pouvez chercher un étudiant selon son nom ou son parcours, ou bien en cochant sur la liste déroulante la/les formations(s) de votre choix, ou le niveau d'étude (Master 1, Master 2). Vous pouvez modifier les informations d'un étudiant sélectionné dans la liste. Il est possible d'enregistrer un étudiant dans la liste d'étudiants depuis l'onglet ''Formulaire d'inscription'', ou vous pouvez rentrer les informations demandées.&#10;&#10;Si vous rencontrez des difficultés, veuillez contacter le +(33)(0)5 49 45 30 00, ou au 15 rue de l'Hôtel Dieu, TSA 71117, 86073 POITIERS Cedex 9, France." wrapText="true" VBox.vgrow="ALWAYS">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -98,9 +85,9 @@
                      </children></AnchorPane>
               </content>
             </ScrollPane>
-            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="79.0" prefWidth="900.0" styleClass="pane">
+            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="79.0" prefWidth="900.0">
                <children>
-                  <GridPane alignment="TOP_CENTER" layoutY="-8.0" maxWidth="1440.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="1426.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="0.0">
+                  <GridPane alignment="TOP_CENTER" layoutY="-8.0" maxWidth="1440.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="1426.0" styleClass="buttonGridPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="0.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -125,12 +112,12 @@
                         </ImageView>
                         <ImageView fitHeight="73.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <image>
-                              <Image url="@img/logo4.jpg" />
+                              <Image url="@img/logo3.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="61.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <image>
-                              <Image url="@img/logo3.png" />
+                              <Image url="@img/logo4.jpg" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="67.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
@@ -160,4 +147,8 @@
          </children>
       </VBox>
    </children>
+   <stylesheets>
+      <URL value="@../../../../../Downloads/test_projet.css" />
+      <URL value="@../test_projet.css" />
+   </stylesheets>
 </AnchorPane>
