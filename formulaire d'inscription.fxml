@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="900.0" styleClass="theme" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="page_liste_etu">
+   <children>
+      <VBox maxHeight="1000.0" maxWidth="1440.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane minHeight="107.0" prefHeight="107.0" prefWidth="900.0" styleClass="theme">
+               <children>
+                  <ImageView fitHeight="118.0" fitWidth="166.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@upwpa512.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="107.0" fitWidth="158.0" layoutX="424.0" layoutY="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@Unknown.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="-Infinity" prefHeight="61.0" prefWidth="900.0" styleClass="buttonbar">
+               <children>
+                  <GridPane alignment="TOP_CENTER" minHeight="51.0" prefHeight="51.0" prefWidth="600.0" styleClass="gridpane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                      <Button fx:id="boutton_accueil" mnemonicParsing="false" onMouseClicked="#page_accueil" styleClass="buttonGridPane" text="Accueil" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="boutton_formulaire_inscription" mnemonicParsing="false" onMouseClicked="#page_formulaire" styleClass="buttonGridPane" text="Formulaire d'inscription" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="boutton_aide" mnemonicParsing="false" onMouseClicked="#page_aide" prefHeight="25.0" styleClass="buttonGridPane" text="Aide" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="boutton_liste_etu" mnemonicParsing="false" onMouseClicked="#page_liste_etu" styleClass="buttonGridPane" text="Liste d'étudiants" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <ScrollPane prefHeight="531.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
+              <content>
+                <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="884.0" styleClass="theme">
+                     <children>
+                        <AnchorPane layoutX="124.0" layoutY="53.0" prefHeight="407.0" prefWidth="635.0" style="-fx-background-color: #263238;">
+                           <children>
+                              <RadioButton fx:id="buttonGPHY" layoutX="292.0" layoutY="190.0" mnemonicParsing="false" text="GPHY" textFill="WHITE" />
+                              <Label layoutX="101.0" layoutY="85.0" text="Nom :" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="243.0" layoutY="32.0" text="Formulaire d'inscription" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="102.0" layoutY="120.0" text="Prénom :" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="102.0" layoutY="156.0" text="Année de naissance :" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="101.0" layoutY="191.0" text="Formation :" textFill="WHITE" />
+                              <Label layoutX="100.0" layoutY="221.0" text="Promotion :" textFill="WHITE" />
+                              <TextField fx:id="nom" layoutX="291.0" layoutY="85.0" prefHeight="25.0" prefWidth="237.0" />
+                              <TextField fx:id="prenom" layoutX="291.0" layoutY="120.0" prefHeight="25.0" prefWidth="237.0" />
+                              <TextField fx:id="naissance" layoutX="291.0" layoutY="156.0" prefHeight="25.0" prefWidth="237.0" />
+                              <Button fx:id="Annuler" layoutX="370.0" layoutY="328.0" mnemonicParsing="false" onMouseClicked="#fermer" prefHeight="34.0" prefWidth="80.0" text="Annuler">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="Ajouter" layoutX="209.0" layoutY="328.0" mnemonicParsing="false" onMouseClicked="#ajouter" prefHeight="34.0" prefWidth="80.0" text="Ajouter">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
+                              <RadioButton fx:id="buttonECMPS" layoutX="380.0" layoutY="190.0" mnemonicParsing="false" text="ECMPS" textFill="WHITE" />
+                              <RadioButton fx:id="buttonGCELL" layoutX="473.0" layoutY="190.0" mnemonicParsing="false" text="GCELL" textFill="WHITE" />
+                              <RadioButton fx:id="buttonM1" layoutX="291.0" layoutY="225.0" mnemonicParsing="false" text="M1" textFill="WHITE" />
+                              <RadioButton fx:id="buttonM2" layoutX="380.0" layoutY="221.0" mnemonicParsing="false" text="M2" textFill="WHITE" />
+                           </children>
+                        </AnchorPane>
+                     </children></AnchorPane>
+              </content>
+            </ScrollPane>
+            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="79.0" prefWidth="900.0" styleClass="pane">
+               <children>
+                  <GridPane alignment="TOP_CENTER" layoutY="-8.0" maxWidth="1440.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="1426.0" styleClass="buttonGridPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ImageView fitHeight="77.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@logo1.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="73.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                           <image>
+                              <Image url="@logo2.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="73.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                           <image>
+                              <Image url="@logo4.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="61.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                           <image>
+                              <Image url="@logo3.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="67.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                           <image>
+                              <Image url="@logo5.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="73.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                           <image>
+                              <Image url="@logo6.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="117.0" minWidth="-Infinity" prefHeight="122.0" prefWidth="900.0" styleClass="label">
+               <children>
+                  <Text fill="#e3e3e8" layoutX="349.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Université de Poitiers" textAlignment="CENTER" wrappingWidth="198.96112060546875" AnchorPane.leftAnchor="349.0" AnchorPane.rightAnchor="352.03887939453125">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#e3e3e8" layoutX="307.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Présidence et administration de l'université&#10;15 rue de l'Hôtel Dieu&#10;TSA 7111786073 Poitiers Cedex 9, France&#10;(33) (0)5 49 45 30 00" textAlignment="CENTER" AnchorPane.leftAnchor="307.0" AnchorPane.rightAnchor="308.765625" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../../../../../../Downloads/test_projet.css" />
+      <URL value="@project.css" />
+   </stylesheets>
+</AnchorPane>
