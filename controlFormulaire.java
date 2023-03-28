@@ -49,17 +49,18 @@ public class controlFormulaire {
     @FXML
     //méthode appelée lors de la validation du formulaire
     void ajouter(MouseEvent event) {
-        String nom = nom.getText();
-        String prenom = prenom.getText();
-        int naissance = naissance.getText();
+        String nomText = nom.getText();
+        String prenomText = prenom.getText();
+        String naissanceText = naissance.getText();
+        int naissance = Integer.parseInt(naissanceText);
         
         // Vérification de la validité des données du formulaire
         boolean formulaireValide = true;
-        if (nom.isEmpty()){
+        if (nomText.isEmpty()){
             formulaireValide = false;
             afficherErreur ("le nom est obligatoire");
         }
-        if (prenom.isEmpty()){
+        if (prenomText.isEmpty()){
             formulaireValide = false;
             afficherErreur ("le prenom est obligatoire");
         }
