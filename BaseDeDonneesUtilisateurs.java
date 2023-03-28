@@ -20,7 +20,7 @@ public class BaseDeDonneesUtilisateurs {
         // initialisation de la connexion à la base de données
         try {
             Class.forName("oracle.jdbc.OracleDriver");
-            connection = DriverManager.getConnection("jdbc:oracle:thin:@[host]:[port]:[schema]");
+            connection = DriverManager.getConnection("jdbc:oracle:thin:@[10.16.140.39]:[1521]/[]", "[jmevial]", "[21705283]");
             String sql = "CREATE TABLE IF NOT EXISTS utilisateurs (id INTEGER PRIMARY KEY AUTOINCREMENT, nom TEXT, prenom TEXT, naissance INTEGER)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.execute();
@@ -29,17 +29,5 @@ public class BaseDeDonneesUtilisateurs {
         }
     }
     
-    // méthode pour ajouter un utilisateur à la base de données
-    public void ajouterUtilisateur(Utilisateur utilisateur) {
-        try {
-            String sql = "INSERT INTO utilisateurs (nom, prenom, naissance) VALUES (?, ?, ?)";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, utilisateur.getNom());
-            statement.setString(2, utilisateur.getPrenom());
-            statement.setInt(3, utilisateur.getNaissance());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+    
 }
