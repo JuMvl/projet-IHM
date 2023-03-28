@@ -13,21 +13,21 @@ public class controlFormulaire {
     @FXML
     private Button Annuler;
 
-    @FXML
-    private CheckBox checkECMPS;
+     @FXML
+    private RadioButton buttonECMPS;
 
     @FXML
-    private CheckBox checkGCELL;
+    private RadioButton buttonGCELL;
 
     @FXML
-    private CheckBox checkGPHY;
+    private RadioButton buttonGPHY;
 
     @FXML
-    private CheckBox checkM1;
+    private RadioButton buttonM1;
 
     @FXML
-    private CheckBox checkM2;
-
+    private RadioButton buttonM2;
+    
     @FXML
     private TextField naissance;
 
