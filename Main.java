@@ -88,4 +88,18 @@ public class Main extends Application {
         // return primaryStage;
     // }
 
+    private static Connection connect(String location){
+        String dbPrefix = "jdbc:sqlite:";
+        Connection connection;
+        try{
+            connection = DriverManager.getConnection(dbPrefix + location);
+        } catch (SQLException exception){
+            Logger.getAnonymousLogger().log(Level.SEVERE,
+            LocalDateTime.now() + ":Could not connect to SQLite DB at " +
+            location);
+            return null;
+        }
+        return connection;
+        }
+    }
 }
