@@ -17,15 +17,15 @@ public class BaseDeDonneesUtilisateurs {
     
     // constructeur privé pour empêcher l'instanciation directe de la classe
     private BaseDeDonneesUtilisateurs() {
-        // initialisation de la connexion à la base de données
+    // initialisation de la connexion à la base de données
         try {
-            Class.forName("oracle.jdbc.OracleDriver");
-            connection = DriverManager.getConnection("jdbc:oracle:thin:@[10.16.140.39]:[1521]/[]", "[jmevial]", "[21705283]");
-            String sql = "CREATE TABLE IF NOT EXISTS utilisateurs (id INTEGER PRIMARY KEY AUTOINCREMENT, nom TEXT, prenom TEXT, naissance INTEGER)";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.execute();
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+            connection = DriverManager.getConnection("jdbc:sqlite:C:/Users/fight/OneDrive/Documents/M1 GPHY/IHM/javaFX/base de données/gestion des étudiants.SQLite");
+            if ( connection != null ){
+            System.out.println("Connexion etablie");
+            }
+        } catch ( Exception ex ) {
+         System.err.println( ex.getClass().getName() + ": " + ex.getMessage() );
+         System.out.println("Erreur de connexion");
         }
     }
     
