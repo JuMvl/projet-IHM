@@ -17,6 +17,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.AnchorPane;
+import java.sql.Connection;
+import java.util.logging.Logger;
+import java.util.logging.Level;
+import java.time.LocalDateTime;
+import java.sql.SQLException;
+import java.sql.DriverManager;
 
 /**
  * Décrivez votre classe Main ici.
@@ -102,4 +108,3 @@ public class Main extends Application {
         return connection;
         }
     }
-}
