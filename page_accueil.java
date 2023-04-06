@@ -54,6 +54,7 @@ public class page_accueil {
      * When this method is called, it will change the Scene 
      * to the page d'accueil scene
      */
+    @FXML
     public void switchToListeEtu(ActionEvent event)
     {
         try

@@ -23,6 +23,8 @@ import java.util.logging.Level;
 import java.time.LocalDateTime;
 import java.sql.SQLException;
 import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.ResultSet;
 
 /**
  * Décrivez votre classe Main ici.
