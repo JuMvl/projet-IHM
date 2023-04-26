@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=SceneController
+comment0.text=\n\ Class\ scene\ controller\ where\ you\ can\ set\ the\ different\ pages\ shown\ on\ the\ screen\n\n
+comment1.params=event
+comment1.target=void\ setPageFormulaire(javafx.event.ActionEvent)
+comment1.text=\n\ Set\ the\ window\ shown\ on\ the\ add\ page\n\ @param\ event\ \:\ event\ change\ the\ page\n
+comment2.params=event
+comment2.target=void\ setPageListeEtu(javafx.event.ActionEvent)
+comment2.text=\n\ Set\ the\ window\ shown\ on\ the\ list\ page\n\ @param\ event\ \:\ event\ change\ the\ page\n
+comment3.params=event
+comment3.target=void\ setPageAccueil(javafx.event.ActionEvent)
+comment3.text=\n\ Set\ the\ window\ shown\ on\ the\ home\ page\n\ @param\ event\ \:\ event\ change\ the\ page\n
+comment4.params=event
+comment4.target=void\ setPageAide(javafx.event.ActionEvent)
+comment4.text=\n\ Set\ the\ window\ shown\ on\ the\ home\ page\n\ @param\ event\ \:\ event\ change\ the\ page\n
+comment5.params=event\ pageFXML
+comment5.target=void\ setPage(javafx.event.ActionEvent,\ java.lang.String)
+comment5.text=\n\ Configure\ the\ window\ on\ the\ screen\ to\ be\ a\ new\ one\ \n\ @param\ event\ \:\ event\ change\ the\ page\n\ @param\ pageFXML\ \:\ the\ new\ page\ which\ will\ be\ shown\ on\ the\ screen\n
+numComments=6

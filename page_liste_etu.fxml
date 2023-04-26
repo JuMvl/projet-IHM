@@ -48,22 +48,22 @@
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                      <Button fx:id="boutton_accueil" mnemonicParsing="false" onAction="#back" onMouseClicked="#page_accueil" styleClass="buttonGridPane" text="Accueil" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                      <Button fx:id="boutton_accueil" mnemonicParsing="false" onAction="#switchToAccueil" styleClass="buttonGridPane" text="Accueil" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="boutton_formulaire_inscription" mnemonicParsing="false" onMouseClicked="#page_formulaire" styleClass="buttonGridPane" text="Formulaire d'inscription" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                        <Button fx:id="boutton_formulaire_inscription" mnemonicParsing="false" onAction="#switchToFormulaire" styleClass="buttonGridPane" text="Formulaire d'inscription" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="boutton_aide" mnemonicParsing="false" onMouseClicked="#page_aide" prefHeight="25.0" styleClass="buttonGridPane" text="Aide" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                        <Button fx:id="boutton_aide" mnemonicParsing="false" onAction="#switchToAide" prefHeight="25.0" styleClass="buttonGridPane" text="Aide" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="boutton_liste_etu" mnemonicParsing="false" onMouseClicked="#page_liste_etu" styleClass="buttonGridPane" text="Liste d'étudiants" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                        <Button fx:id="boutton_liste_etu" mnemonicParsing="false" styleClass="buttonGridPane" text="Liste d'étudiants" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -76,12 +76,12 @@
               <content>
                 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="884.0" styleClass="theme">
                      <children>
-                        <CheckBox fx:id="choix_M1" layoutX="327.0" layoutY="73.0" mnemonicParsing="false" text="Master 1">
+                        <CheckBox fx:id="choix_M1" layoutX="327.0" layoutY="73.0" mnemonicParsing="false" onAction="#displayEtudiantsoptionM1" text="Master 1">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </CheckBox>
-                        <CheckBox fx:id="choix_M2" layoutX="326.0" layoutY="109.0" mnemonicParsing="false" text="Master 2">
+                        <CheckBox fx:id="choix_M2" layoutX="326.0" layoutY="109.0" mnemonicParsing="false" onAction="#displayEtudiantsoptionM2" text="Master 2">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -97,6 +97,8 @@
                             <TableColumn fx:id="colonne_prenom" prefWidth="75.0" text="Prénom" />
                               <TableColumn fx:id="colonne_formation" prefWidth="75.0" text="Formation" />
                               <TableColumn fx:id="colonne_promotion" prefWidth="75.0" text="Promotion" />
+                              <TableColumn fx:id="colonne_naissance" prefWidth="165.760986328125" text="Année de Naissance" />
+                              <TableColumn fx:id="colonne_id" prefWidth="75.0" text="ID" />
                           </columns>
                         </TableView>
                         <RadioButton fx:id="boutton_gphy" layoutX="124.0" layoutY="51.0" mnemonicParsing="false" text="GPhy">
@@ -124,6 +126,7 @@
                               <Font size="16.0" />
                            </font>
                         </RadioButton>
+                        <Button fx:id="boutton_rafraichir" layoutX="467.0" layoutY="144.0" mnemonicParsing="false" onAction="#display" text="rafraichir" />
                      </children></AnchorPane>
               </content>
             </ScrollPane>

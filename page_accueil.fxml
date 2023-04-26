@@ -44,22 +44,22 @@
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                      <Button fx:id="boutton_accueil" mnemonicParsing="false" onMouseClicked="#page_accueil" styleClass="buttonGridPane" text="Accueil" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                      <Button fx:id="boutton_accueil" mnemonicParsing="false" styleClass="buttonGridPane" text="Accueil" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="boutton_formulaire_inscription" mnemonicParsing="false" onMouseClicked="#page_formulaire" styleClass="buttonGridPane" text="Formulaire d'inscription" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                        <Button fx:id="boutton_formulaire_inscription" mnemonicParsing="false" onAction="#switchToFormulaire" styleClass="buttonGridPane" text="Formulaire d'inscription" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="boutton_aide" mnemonicParsing="false" onMouseClicked="#page_aide" prefHeight="25.0" styleClass="buttonGridPane" text="Aide" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                        <Button fx:id="boutton_aide" mnemonicParsing="false" onAction="#switchToAide" prefHeight="25.0" styleClass="buttonGridPane" text="Aide" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="boutton_liste_etu" mnemonicParsing="false" onAction="#listeEtudiant" onMouseClicked="#page_liste_etu" styleClass="buttonGridPane" text="Liste d'étudiants" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                        <Button fx:id="boutton_liste_etu" mnemonicParsing="false" onAction="#switchToListe" styleClass="buttonGridPane" text="Liste d'étudiants" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
                            <font>
                               <Font size="18.0" />
                            </font>

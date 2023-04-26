@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=page_liste_etu
+comment1.params=event
+comment1.target=void\ switchToAccueil(javafx.event.ActionEvent)
+comment1.text=\n\ When\ this\ method\ is\ called,\ it\ will\ change\ the\ Scene\ \n\ to\ the\ page\ d'accueil\ scene\n
+comment2.params=event
+comment2.target=void\ switchToFormulaire(javafx.event.ActionEvent)
+comment2.text=\n\ When\ this\ method\ is\ called,\ it\ will\ change\ the\ Scene\ \n\ to\ the\ page\ d'accueil\ scene\n
+comment3.params=event
+comment3.target=void\ switchToAide(javafx.event.ActionEvent)
+comment3.text=\n\ When\ this\ method\ is\ called,\ it\ will\ change\ the\ Scene\ \n\ to\ the\ page\ d'accueil\ scene\n
+comment4.params=
+comment4.target=void\ display()
+comment5.params=etudiant
+comment5.target=void\ updateEtudiant(Etudiant)
+comment5.text=\n\ Updates\ the\ information\ of\ an\ existing\ student\ in\ the\ database\n
+comment6.params=event
+comment6.target=void\ displayEtudiantsoptionM1(javafx.event.ActionEvent)
+comment7.params=event
+comment7.target=void\ displayEtudiantsoptionM2(javafx.event.ActionEvent)
+numComments=8

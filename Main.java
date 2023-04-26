@@ -52,10 +52,10 @@ public class Main extends Application {
         {
             ioe.printStackTrace();
         }// Building the FXML hierarchy
-        
-        //initRootLayout();
 
     }
+
+    
      
 
     // /**

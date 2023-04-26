@@ -1,8 +1,33 @@
 import javafx.event.ActionEvent;
 import javax.swing.JRadioButton;
 import javafx.scene.control.*;
-
-    import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.Node;
+import javafx.fxml.FXMLLoader;
+import java.io.IOException;
+import java.sql.*;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.converter.IntegerStringConverter;
+import javafx.scene.control.TableColumn.CellEditEvent;
+import javafx.fxml.FXML;
+import javafx.event.ActionEvent;
+import javax.swing.JRadioButton;
+import javafx.scene.control.*;
+import java.util.List;
+import java.util.ArrayList;
+import javafx.collections.ObservableList;
+import javafx.beans.property.*;
+import javafx.collections.*;
+import javafx.fxml.FXML;
     import javafx.scene.control.Button;
     import javafx.scene.control.CheckBox;
     import javafx.scene.control.MenuButton;
@@ -20,7 +45,6 @@ import javafx.scene.control.*;
     import javafx.scene.control.cell.TextFieldTableCell;
     import javafx.util.converter.IntegerStringConverter;
     import javafx.scene.control.TableColumn.CellEditEvent;
-    
     import javafx.fxml.FXML;
 
 
@@ -31,6 +55,9 @@ import javafx.scene.control.*;
     
         @FXML
         private Button boutton_aide;
+        
+        @FXML
+        private Button boutton_rafraichir;
         
         @FXML
         private Button boutton_formulaire_inscription;
@@ -71,10 +98,13 @@ import javafx.scene.control.*;
         private TableColumn<Etudiant, String> colonne_prenom;
     
         @FXML
-        private TableColumn<Etudiant, Integer> colonne_promotion;
+        private TableColumn<Etudiant, String> colonne_promotion;
         
         @FXML
-        private TableColumn<Etudiant, Integer> colonne_naissance;
+        private TableColumn<Etudiant, String> colonne_id;
+        
+        @FXML
+        private TableColumn<Etudiant, String> colonne_naissance;
     
         @FXML
         private TextField search_bar;
@@ -82,109 +112,79 @@ import javafx.scene.control.*;
         @FXML
         private TableView<Etudiant> table_list_etu;
     
-        /**
-         * When this method is called, it will change the Scene to the page d'accueil
-         * scene
-         */
-        public void switchToPageAccueil(MouseEvent event) {
-            try {
-                Parent page_accueilParent = FXMLLoader.load(getClass().getResource("page_accueil.fxml"));
-                Scene page_accueilScene = new Scene(page_accueilParent);// JavaFX must have a Scene (window content) inside a
-                                                                       // Stage (window)
-                // Getting the stage information
-                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        
-                window.setScene(page_accueilScene);
-                window.show();
-            } catch (IOException ioe) {
-                ioe.printStackTrace();
-            }
-        }
+    /**
+     * When this method is called, it will change the Scene 
+     * to the page d'accueil scene
+     */
+    @FXML
+    public void switchToAccueil(ActionEvent event)throws IOException {
+        SceneController page = new SceneController();
+        page.setPageAccueil(event);
+    }
     
         /**
-         * Retrieves and displays the list of students from the database
-         */
-        public void displayEtudiants() {
-            String query = "SELECT * FROM etudiants";
-            try (Connection connection = DriverManager.getConnection("jdbc:sqlite:database.db");
+     * When this method is called, it will change the Scene 
+     * to the page d'accueil scene
+     */
+    @FXML
+    public void switchToFormulaire(ActionEvent event)throws IOException {
+        SceneController page = new SceneController();
+        page.setPageFormulaire(event);
+    }
+    
+    /**
+     * When this method is called, it will change the Scene 
+     * to the page d'accueil scene
+     */
+    @FXML
+    public void switchToAide(ActionEvent event)throws IOException {
+        SceneController page = new SceneController();
+        page.setPageAide(event);
+    }
+    
+    
+    public void display(){
+            String query = "SELECT * FROM table_etu order by id_etu ASC;";
+            ArrayList <Etudiant> etudiants = new ArrayList(); //Creation d'une liste vide pour stocker les etudiants   
+                try {
+                    Class.forName("org.sqlite.JDBC");
+                    Connection connection = DriverManager.getConnection("jdbc:sqlite:bdd_projet_ihm.db");
                     Statement stmt = connection.createStatement();
-                    ResultSet rs = stmt.executeQuery(query)) {
-                while (rs.next()) {
-                    int id = rs.getInt("id");
-                    String nom = rs.getString("nom");
-                    String prenom = rs.getString("prenom");
-                    int naissance = rs.getInt("date_de_naissance");
-                    String formation = rs.getString("formation");
-                    int promotion = rs.getInt("promotion");
-                    Etudiant etudiant = new Etudiant(id, nom, prenom, formation, promotion, naissance);
-                    table_list_etu.getItems().add(etudiant);//recuperer toute la bdd
-                }
-            } catch (SQLException e) {
+                    ResultSet rs = stmt.executeQuery(query);
+                        while (rs.next()) 
+                        {
+                            String annee_naissanceString = Integer.toString(rs.getInt("annee_naissance"));//Convertir les int en string
+                            Etudiant etudiant = new Etudiant(rs.getInt("id_etu"),rs.getString("nom_etu"),rs.getString("prenom_etu"),annee_naissanceString,rs.getString("formation"),rs.getString("promotion"));
+                            etudiants.add(etudiant);
+                    }
+                    ObservableList<Etudiant> etuOL = FXCollections.observableArrayList(etudiants);
+                    
+                    //Remplir le tableau avec les éléments sélectionnés dans la bdd
+                    colonne_id.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getIdString()));
+                    colonne_nom.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNom()));
+                    colonne_prenom.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPrenom()));
+                    colonne_promotion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPromotion()));
+                    colonne_formation.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getFormation()));
+                    colonne_naissance.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNaissance()));
+                      
+                    table_list_etu.setItems(etuOL);
+                    } 
+                    catch (Exception e) {
                 System.err.println("Erreur lors de la récupération des étudiants: " + e.getMessage());
             }
         }
     
-        /**
-         * Initializes the table columns and displays the list of students
-         */
-        @FXML
-        private void initialize() {
-            displayEtudiants();
-            colonne_nom.setCellValueFactory(cellData -> cellData.getValue().nomProperty());
-            colonne_prenom.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
-            //colonne_promotion.setCellValueFactory(cellData -> cellData.getValue().promotionProperty());//.asObject());
-            colonne_formation.setCellValueFactory(cellData -> cellData.getValue().formationProperty());
-            //colonne_naissance.setCellValueFactory(cellData -> cellData.getValue().naissanceProperty());
-            
-            // Enable editing of the "nom" column
-            colonne_nom.setCellFactory(TextFieldTableCell.forTableColumn());
-            colonne_nom.setOnEditCommit((CellEditEvent<Etudiant, String> event) -> {
-                Etudiant etudiant = event.getRowValue();
-                etudiant.setNom(event.getNewValue());
-                // Update the database with the new name
-                updateEtudiant(etudiant);
-            });
-            
-            // Enable editing of the "prenom" column
-            colonne_prenom.setCellFactory(TextFieldTableCell.forTableColumn());
-            colonne_prenom.setOnEditCommit((CellEditEvent<Etudiant, String> event) -> {
-                Etudiant etudiant = event.getRowValue();
-                etudiant.setPrenom(event.getNewValue());
-                // Update the database with the new prenom
-                updateEtudiant(etudiant);
-            });
-            
-            // Enable editing of the "promotion" column
-            colonne_promotion.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-            colonne_promotion.setOnEditCommit((CellEditEvent<Etudiant, Integer> event) -> {
-                Etudiant etudiant = event.getRowValue();
-                etudiant.setPromotion(event.getNewValue());
-                // Update the database with the new promotion
-                updateEtudiant(etudiant);
-            });
-            
-            // Enable editing of the "naissance" column
-            colonne_naissance.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-            colonne_naissance.setOnEditCommit((CellEditEvent<Etudiant, Integer> event) -> {
-                Etudiant etudiant = event.getRowValue();
-                etudiant.setNaissance(event.getNewValue());
-                // Update the database with the new naissance
-                updateEtudiant(etudiant);
-            });
     
-            displayEtudiants();
-        }
-        
         /**
          * Updates the information of an existing student in the database
          */
         private void updateEtudiant(Etudiant etudiant) {
-            String query = "UPDATE etudiants SET nom=?, prenom=?, promotion=? WHERE id=?";
+            String query = "UPDATE table_etu SET nom=?, prenom=?, promotion=? WHERE id=?";
             try (Connection connection = DriverManager.getConnection("jdbc:sqlite:gestion des étudiants.db");
                     PreparedStatement pstmt = connection.prepareStatement(query)) {
                 pstmt.setString(1, etudiant.getNom());
                 pstmt.setString(2, etudiant.getPrenom());
-                pstmt.setInt(3, etudiant.getPromotion());
+                pstmt.setString(3, etudiant.getPromotion());
                 pstmt.setInt(4, etudiant.getId());
                 pstmt.executeUpdate();
             } catch (SQLException e) {
@@ -192,82 +192,71 @@ import javafx.scene.control.*;
             }
         }
             
-        /**
-         * Go to the home page, when the buttonBack is pressed
-         * @param event : event when the button is pressed
-         */
-        @FXML
-        public void back(ActionEvent event) throws IOException {
-            SceneController page = new SceneController();
-            page.setPageAccueil(event);
-        }
     
-        public void displayEtudiantsoptionM1(){
-            choix_M1.setOnAction(event -> {     // initialiser l'action de la checkbox M1
+        public void displayEtudiantsoptionM1(ActionEvent event){
             if (choix_M1.isSelected()) {
-                String query = "SELECT * FROM etudiants where promotion=1";
-                try (Connection connection = DriverManager.getConnection("jdbc:sqlite:database.db");
+                String query = "SELECT * FROM table_etu where promotion='M1'";
+                try (Connection connection = DriverManager.getConnection("jdbc:sqlite:bdd_projet_ihm.db");
                     Statement stmt = connection.createStatement();
-                    //statement.setString("M1");
                     ResultSet rs = stmt.executeQuery(query)) //variable qui stock les étudiants obtenus avec cette requette
                     {
-                    while (rs.next()) {
-                    int id = rs.getInt("id");
-                    String nom = rs.getString("nom");
-                    String prenom = rs.getString("prenom");
-                    int naissance = rs.getInt("date_de_naissance");
-                    String formation = rs.getString("formation");
-                    int promotion = rs.getInt("promotion");
+                    ArrayList <Etudiant> etudiants = new ArrayList(); //Creation d'une liste vide pour stocker les etudiants   
+                        while (rs.next()) 
+                        {
+                            String annee_naissanceString = Integer.toString(rs.getInt("annee_naissance"));//Convertir les int en string
+                            Etudiant etudiant = new Etudiant(rs.getInt("id_etu"),rs.getString("nom_etu"),rs.getString("prenom_etu"),annee_naissanceString,rs.getString("formation"),rs.getString("promotion"));
+                            System.out.println(etudiant.getPrenom());
+                            etudiants.add(etudiant);
+                        }
+                    ObservableList<Etudiant> etuOL = FXCollections.observableArrayList(etudiants);
                     
-                    Etudiant etudiant = new Etudiant(id, nom, prenom, formation, promotion, naissance);
-                    table_list_etu.getItems().add(etudiant);
-                    }
+                    //Remplir le tableau avec les éléments sélectionnés dans la bdd
+                    colonne_nom.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNom()));
+                    colonne_prenom.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPrenom()));
+                    colonne_promotion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPromotion()));
+                    colonne_formation.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getFormation()));
+                    colonne_naissance.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNaissance()));
+                      
+                    table_list_etu.setItems(etuOL);
                     } 
                     catch (SQLException e) {
                 System.err.println("Erreur lors de la récupération des étudiants: " + e.getMessage());
             }
             }
         }
-        );
-    }
-    
-    public void displayEtudiantsoptionM2(){
-            choix_M2.setOnAction(event -> {
+        
+        public void displayEtudiantsoptionM2(ActionEvent event){
             if (choix_M2.isSelected()) {
-                String query = "SELECT * FROM etudiants where promotion=1";
-                try (Connection connection = DriverManager.getConnection("jdbc:sqlite:database.db");
+                String query = "SELECT * FROM table_etu where promotion='M2'";
+                try (Connection connection = DriverManager.getConnection("jdbc:sqlite:bdd_projet_ihm.db");
                     Statement stmt = connection.createStatement();
-                    //statement.setString("M1");
                     ResultSet rs = stmt.executeQuery(query)) //variable qui stock les étudiants obtenus avec cette requette
                     {
-                    while (rs.next()) {
-                    int id = rs.getInt("id");
-                    String nom = rs.getString("nom");
-                    String prenom = rs.getString("prenom");
-                    int naissance = rs.getInt("date_de_naissance");
-                    String formation = rs.getString("formation");
-                    int promotion = rs.getInt("promotion");
+                    ArrayList <Etudiant> etudiants = new ArrayList(); //Creation d'une liste vide pour stocker les etudiants   
+                        while (rs.next()) 
+                        {
+                            String annee_naissanceString = Integer.toString(rs.getInt("annee_naissance"));//Convertir les int en string
+                            Etudiant etudiant = new Etudiant(rs.getInt("id_etu"),rs.getString("nom_etu"),rs.getString("prenom_etu"),annee_naissanceString,rs.getString("formation"),rs.getString("promotion"));
+                            System.out.println(etudiant.getPrenom());
+                            etudiants.add(etudiant);
+                        }
+                    ObservableList<Etudiant> etuOL = FXCollections.observableArrayList(etudiants);
                     
-                    //remplissage de la table
-                    Etudiant etudiant = new Etudiant(id, nom, prenom, formation, promotion, naissance);
-                    table_list_etu.getItems().add(etudiant);
-                    }
+                    //Remplir le tableau avec les éléments sélectionnés dans la bdd
+                    colonne_nom.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNom()));
+                    colonne_prenom.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPrenom()));
+                    colonne_promotion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPromotion()));
+                    colonne_formation.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getFormation()));
+                    colonne_naissance.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNaissance()));
+                      
+                    table_list_etu.setItems(etuOL);
                     } 
                     catch (SQLException e) {
                 System.err.println("Erreur lors de la récupération des étudiants: " + e.getMessage());
             }
             }
         }
-        );
-    }
+}
+                
     
-    public void displayEtudiantstouteoption(){
-            boutton_tous_M.setOnAction(event -> {
-            if (boutton_tous_M.isSelected()) {
-                displayEtudiantsoptionM1();
-                displayEtudiantsoptionM2();
-            }
-            }
-        );
-    }
-    }
+   

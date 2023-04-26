@@ -16,7 +16,7 @@ public class SceneController
      * Set the window shown on the add page
      * @param event : event change the page
      */
-    public void setPageInscription(ActionEvent event){
+    public void setPageFormulaire(ActionEvent event){
         setPage(event,"formulaire d'inscription.fxml");
     }
     
@@ -24,7 +24,7 @@ public class SceneController
      * Set the window shown on the list page
      * @param event : event change the page
      */
-    public void setPageListe(ActionEvent event){
+    public void setPageListeEtu(ActionEvent event){
         setPage(event,"page_liste_etu.fxml");
     }
     
@@ -38,6 +38,14 @@ public class SceneController
     }
     
     /**
+     * Set the window shown on the home page
+     * @param event : event change the page
+     */
+    public void setPageAide(ActionEvent event){
+        setPage(event,"page_aide.fxml");
+    }
+    
+    /**
      * Configure the window on the screen to be a new one 
      * @param event : event change the page
      * @param pageFXML : the new page which will be shown on the screen
@@ -45,14 +53,11 @@ public class SceneController
     private void setPage(ActionEvent event,String pageFXML){
       try
       {
-          Stage primaryStage = new Stage();
-          Parent root = FXMLLoader.load(getClass().getResource(pageFXML));
-          Scene scene = new Scene(root);
-          primaryStage.setTitle("Application");
-          primaryStage.setScene(scene);
-          primaryStage.show();
-          Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-          stage.close();
+          Parent Parent = FXMLLoader.load(getClass().getResource(pageFXML));
+          Scene Scene = new Scene (Parent);
+          Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+          window.setScene(Scene);
+          window.show();
       }
       catch (java.io.IOException ioe)
       {
@@ -60,3 +65,5 @@ public class SceneController
       }
     }
 }
+
+

@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=AideController
+comment1.params=event
+comment1.target=void\ switchToFormulaire(javafx.event.ActionEvent)
+comment1.text=\n\ When\ this\ method\ is\ called,\ it\ will\ change\ the\ Scene\ \n\ to\ the\ page\ d'accueil\ scene\n
+comment2.params=event
+comment2.target=void\ switchToAccueil(javafx.event.ActionEvent)
+comment2.text=\n\ When\ this\ method\ is\ called,\ it\ will\ change\ the\ Scene\ \n\ to\ the\ page\ d'accueil\ scene\n
+comment3.params=event
+comment3.target=void\ switchToListe(javafx.event.ActionEvent)
+comment3.text=\n\ When\ this\ method\ is\ called,\ it\ will\ change\ the\ Scene\ \n\ to\ the\ page\ d'accueil\ scene\n
+numComments=4
