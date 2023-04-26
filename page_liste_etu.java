@@ -1,3 +1,7 @@
+import javafx.event.ActionEvent;
+import javax.swing.JRadioButton;
+import javafx.scene.control.*;
+
     import javafx.fxml.FXML;
     import javafx.scene.control.Button;
     import javafx.scene.control.CheckBox;
@@ -17,6 +21,9 @@
     import javafx.util.converter.IntegerStringConverter;
     import javafx.scene.control.TableColumn.CellEditEvent;
     
+    import javafx.fxml.FXML;
+
+
     public class page_liste_etu extends Main {
     
         @FXML
@@ -24,7 +31,7 @@
     
         @FXML
         private Button boutton_aide;
-    
+        
         @FXML
         private Button boutton_formulaire_inscription;
     
@@ -37,8 +44,22 @@
         @FXML
         private CheckBox choix_M2;
     
+        //@FXML
+        //private MenuButton choix_parcours;
         @FXML
-        private MenuButton choix_parcours;
+        private RadioButton boutton_tous_M;
+        
+        @FXML
+        private RadioButton boutton_ecmps;
+        
+        @FXML
+        private RadioButton boutton_gphy;
+        
+        @FXML
+        private RadioButton boutton_gcell;
+        
+        @FXML
+        private RadioButton boutton_tous;
     
         @FXML
         private TableColumn<Etudiant, String> colonne_formation;
@@ -96,7 +117,7 @@
                     String formation = rs.getString("formation");
                     int promotion = rs.getInt("promotion");
                     Etudiant etudiant = new Etudiant(id, nom, prenom, formation, promotion, naissance);
-                    table_list_etu.getItems().add(etudiant);
+                    table_list_etu.getItems().add(etudiant);//recuperer toute la bdd
                 }
             } catch (SQLException e) {
                 System.err.println("Erreur lors de la récupération des étudiants: " + e.getMessage());
@@ -108,9 +129,10 @@
          */
         @FXML
         private void initialize() {
+            displayEtudiants();
             colonne_nom.setCellValueFactory(cellData -> cellData.getValue().nomProperty());
             colonne_prenom.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
-            colonne_promotion.setCellValueFactory(cellData -> cellData.getValue().promotionProperty().asObject());
+            //colonne_promotion.setCellValueFactory(cellData -> cellData.getValue().promotionProperty());//.asObject());
             colonne_formation.setCellValueFactory(cellData -> cellData.getValue().formationProperty());
             //colonne_naissance.setCellValueFactory(cellData -> cellData.getValue().naissanceProperty());
             
@@ -169,4 +191,83 @@
                 System.err.println("Erreur lors de la mise à jour de l'étudiant: " + e.getMessage());
             }
         }
+            
+        /**
+         * Go to the home page, when the buttonBack is pressed
+         * @param event : event when the button is pressed
+         */
+        @FXML
+        public void back(ActionEvent event) throws IOException {
+            SceneController page = new SceneController();
+            page.setPageAccueil(event);
+        }
+    
+        public void displayEtudiantsoptionM1(){
+            choix_M1.setOnAction(event -> {     // initialiser l'action de la checkbox M1
+            if (choix_M1.isSelected()) {
+                String query = "SELECT * FROM etudiants where promotion=1";
+                try (Connection connection = DriverManager.getConnection("jdbc:sqlite:database.db");
+                    Statement stmt = connection.createStatement();
+                    //statement.setString("M1");
+                    ResultSet rs = stmt.executeQuery(query)) //variable qui stock les étudiants obtenus avec cette requette
+                    {
+                    while (rs.next()) {
+                    int id = rs.getInt("id");
+                    String nom = rs.getString("nom");
+                    String prenom = rs.getString("prenom");
+                    int naissance = rs.getInt("date_de_naissance");
+                    String formation = rs.getString("formation");
+                    int promotion = rs.getInt("promotion");
+                    
+                    Etudiant etudiant = new Etudiant(id, nom, prenom, formation, promotion, naissance);
+                    table_list_etu.getItems().add(etudiant);
+                    }
+                    } 
+                    catch (SQLException e) {
+                System.err.println("Erreur lors de la récupération des étudiants: " + e.getMessage());
+            }
+            }
+        }
+        );
+    }
+    
+    public void displayEtudiantsoptionM2(){
+            choix_M2.setOnAction(event -> {
+            if (choix_M2.isSelected()) {
+                String query = "SELECT * FROM etudiants where promotion=1";
+                try (Connection connection = DriverManager.getConnection("jdbc:sqlite:database.db");
+                    Statement stmt = connection.createStatement();
+                    //statement.setString("M1");
+                    ResultSet rs = stmt.executeQuery(query)) //variable qui stock les étudiants obtenus avec cette requette
+                    {
+                    while (rs.next()) {
+                    int id = rs.getInt("id");
+                    String nom = rs.getString("nom");
+                    String prenom = rs.getString("prenom");
+                    int naissance = rs.getInt("date_de_naissance");
+                    String formation = rs.getString("formation");
+                    int promotion = rs.getInt("promotion");
+                    
+                    //remplissage de la table
+                    Etudiant etudiant = new Etudiant(id, nom, prenom, formation, promotion, naissance);
+                    table_list_etu.getItems().add(etudiant);
+                    }
+                    } 
+                    catch (SQLException e) {
+                System.err.println("Erreur lors de la récupération des étudiants: " + e.getMessage());
+            }
+            }
+        }
+        );
+    }
+    
+    public void displayEtudiantstouteoption(){
+            boutton_tous_M.setOnAction(event -> {
+            if (boutton_tous_M.isSelected()) {
+                displayEtudiantsoptionM1();
+                displayEtudiantsoptionM2();
+            }
+            }
+        );
+    }
     }

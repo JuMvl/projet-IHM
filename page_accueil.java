@@ -50,26 +50,36 @@ public class page_accueil {
          
     }
      
-    /**
-     * When this method is called, it will change the Scene 
-     * to the page d'accueil scene
+        /**
+     * Go to the add page when the buttonAdd is pressed
+     * @param event : used when the button is pressed
      */
     @FXML
-    public void switchToListeEtu(ActionEvent event)
-    {
-        try
-            {
-            Parent page_accueilParent = FXMLLoader.load(getClass().getResource("page_liste_etu.fxml"));
-            Scene page_accueilScene = new Scene (page_accueilParent);// JavaFX must have a Scene (window content) inside a Stage (window)
-            //Getting the stage information
-            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+    public void listeEtudiant(ActionEvent event) throws IOException {
+        SceneController page = new SceneController();
+        page.setPageListe(event);
+    } 
+    
+    // /**
+     // * When this method is called, it will change the Scene 
+     // * to the page d'accueil scene
+     // */
+    // @FXML
+    // public void switchToListeEtu(ActionEvent event)
+    // {
+        // try
+            // {
+            // Parent page_accueilParent = FXMLLoader.load(getClass().getResource("page_liste_etu.fxml"));
+            // Scene page_accueilScene = new Scene (page_accueilParent);// JavaFX must have a Scene (window content) inside a Stage (window)
+            // //Getting the stage information
+            // Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             
-            window.setScene(page_accueilScene);
-            window.show();
-            }
-            catch (IOException ioe)
-            {
-            ioe.printStackTrace();
-            }// Building the FXML hierarchy
-    }
+            // window.setScene(page_accueilScene);
+            // window.show();
+            // }
+            // catch (IOException ioe)
+            // {
+            // ioe.printStackTrace();
+            // }// Building the FXML hierarchy
+    // }
 }

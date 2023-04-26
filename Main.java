@@ -17,14 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.AnchorPane;
-import java.sql.Connection;
-import java.util.logging.Logger;
-import java.util.logging.Level;
-import java.time.LocalDateTime;
-import java.sql.SQLException;
-import java.sql.DriverManager;
-import java.sql.Statement;
-import java.sql.ResultSet;
+
 
 /**
  * Décrivez votre classe Main ici.
@@ -36,27 +29,17 @@ public class Main extends Application {
     private Stage primaryStage;
     private BorderPane root;
     
-
+    public static void main(String[] args) {
+         Application.launch(args);
+    }
+    
     @Override
     public void start(Stage primaryStage) throws Exception
     {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("page_accueil.fxml");
         
-        initRootLayout();
-    }
-     
-    public static void main(String[] args) {
-        Application.launch(args);
-    }
-    
-
-    /**
-     * Initializes the root layout
-     */
-    public void initRootLayout(){ 
-        
-        try
+            try
         {
             Parent root = FXMLLoader.load(getClass().getResource("page_accueil.fxml"));
             Scene scene = new Scene (root);// JavaFX must have a Scene (window content) inside a Stage (window)
@@ -70,7 +53,31 @@ public class Main extends Application {
             ioe.printStackTrace();
         }// Building the FXML hierarchy
         
+        //initRootLayout();
+
     }
+     
+
+    // /**
+     // * Initializes the root layout
+     // // */
+    // public void initRootLayout(){ 
+        
+        // try
+        // {
+            // Parent root = FXMLLoader.load(getClass().getResource("page_accueil.fxml"));
+            // Scene scene = new Scene (root);// JavaFX must have a Scene (window content) inside a Stage (window)
+            // // Création de la scène (avec des dimensions correspondant à une résolution HD), composé uniquement d'une étiquette affichant du texte
+            // primaryStage.setScene(scene);
+            // primaryStage.show();
+            
+        // }
+        // catch (IOException ioe)
+        // {
+            // ioe.printStackTrace();
+        // }// Building the FXML hierarchy
+        
+    // }
     // /**
      // * Shows the person overview inside the root layout.
      // */
@@ -88,25 +95,26 @@ public class Main extends Application {
         // }
     // }
     
-    // /**
-     // * Returns the main stage.
-     // * @return
-     // */
-    // public Stage getPrimaryStage() {
-        // return primaryStage;
-    // }
+    /**
+     * Returns the main stage.
+     * @return
+     */
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
 
-    private static Connection connect(String location){
-        String dbPrefix = "jdbc:sqlite:";
-        Connection connection;
-        try{
-            connection = DriverManager.getConnection(dbPrefix + location);
-        } catch (SQLException exception){
-            Logger.getAnonymousLogger().log(Level.SEVERE,
-            LocalDateTime.now() + ":Could not connect to SQLite DB at " +
-            location);
-            return null;
-        }
-        return connection;
-        }
+    // private static Connection connect(String location){
+        // String dbPrefix = "jdbc:sqlite:";
+        // Connection connection;
+        // try{
+            // connection = DriverManager.getConnection(dbPrefix + location);
+        // } catch (SQLException exception){
+            // Logger.getAnonymousLogger().log(Level.SEVERE,
+            // LocalDateTime.now() + ":Could not connect to SQLite DB at " +
+            // location);
+            // return null;
+        // }
+        // return connection;
+        // }
+        
     }
