@@ -1,0 +1,8 @@
+CREATE TABLE etudiants (
+    id_etudiant     INTEGER   PRIMARY KEY,
+    nom_etu         TEXT (50),
+    prenom_etu      TEXT (50),
+    annee_naissance INTEGER,
+    formation       INTEGER,
+    promotion       INTEGER
+);
