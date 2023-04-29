@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="1000.0" maxWidth="1440.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane minHeight="107.0" prefHeight="107.0" prefWidth="900.0" styleClass="theme">
+         <children>
+            <ImageView fitHeight="118.0" fitWidth="166.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../projet-IHM-master%20(2)/projet-IHM-master-copy/img/upwpa512.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="107.0" fitWidth="158.0" layoutX="424.0" layoutY="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../projet-IHM-master%20(2)/projet-IHM-master-copy/img/Unknown.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane minHeight="-Infinity" prefHeight="61.0" prefWidth="900.0" styleClass="buttonbar">
+         <children>
+            <GridPane alignment="TOP_CENTER" minHeight="51.0" prefHeight="51.0" prefWidth="600.0" styleClass="gridpane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button fx:id="boutton_accueil" mnemonicParsing="false" onMouseClicked="#page_accueil" styleClass="buttonGridPane" text="Accueil" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="boutton_formulaire_inscription" mnemonicParsing="false" onMouseClicked="#page_formulaire" styleClass="buttonGridPane" text="Formulaire d'inscription" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="boutton_aide" mnemonicParsing="false" onMouseClicked="#page_aide" prefHeight="25.0" styleClass="buttonGridPane" text="Aide" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="boutton_liste_etu" mnemonicParsing="false" onMouseClicked="#page_liste_etu" styleClass="buttonGridPane" text="Liste d'étudiants" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <ScrollPane prefHeight="531.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
+         <content>
+            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="884.0" styleClass="theme">
+               <children>
+                  <AnchorPane layoutX="124.0" layoutY="53.0" prefHeight="407.0" prefWidth="635.0" style="-fx-background-color: #263238;">
+                     <children>
+                        <Label fx:id="id_etu" layoutX="35.0" layoutY="85.0" text="Id étudiant :" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="243.0" layoutY="32.0" text="Formulaire modification d'un étudiant" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="ddn_etu" layoutX="29.0" layoutY="198.0" text="Année de naissance :" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="id_recherche" layoutX="124.0" layoutY="85.0" prefHeight="25.0" prefWidth="81.0" />
+                        <TextField fx:id="naissance_recherche" layoutX="191.0" layoutY="202.0" prefHeight="25.0" prefWidth="93.0" />
+                        <Button fx:id="Annuler" layoutX="370.0" layoutY="341.0" mnemonicParsing="false" onMouseClicked="#fermer" prefHeight="34.0" prefWidth="80.0" text="Annuler">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="Modifier" layoutX="209.0" layoutY="341.0" mnemonicParsing="false" onAction="#SubStudent" onMouseClicked="#ajouter" prefHeight="36.0" prefWidth="93.0" text="Modifier">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <TableView fx:id="table_list_etu" layoutX="23.0" layoutY="258.0" prefHeight="62.0" prefWidth="579.0">
+                           <columns>
+                              <TableColumn fx:id="colonne_nom" prefWidth="142.00001525878906" text="Nom" />
+                              <TableColumn fx:id="colonne_prenom" minWidth="8.666656494140625" prefWidth="119.33334350585938" text="Prénom" />
+                              <TableColumn fx:id="colonne_formation" minWidth="0.0" prefWidth="126.66665649414062" text="Formation" />
+                              <TableColumn fx:id="colonne_promotion" prefWidth="127.33331298828125" text="Promotion" />
+                           </columns>
+                        </TableView>
+                        <Label fx:id="nom_etu" layoutX="35.0" layoutY="121.0" text="nom :" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="nom_recherche" layoutX="88.0" layoutY="121.0" prefHeight="25.0" prefWidth="81.0" />
+                        <Label fx:id="prenom" layoutX="36.0" layoutY="156.0" text="prenom :" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="prenom_recherche" layoutX="125.0" layoutY="156.0" prefHeight="25.0" prefWidth="81.0" />
+                        <Button fx:id="boutton_rafraichir" layoutX="450.0" layoutY="214.0" mnemonicParsing="false" onAction="#display" text="rafraichir" />
+                        <ComboBox fx:id="choix_promo" layoutX="344.0" layoutY="108.0" prefWidth="150.0" promptText="Promotion" />
+                        <ComboBox fx:id="choix_formation" layoutX="344.0" layoutY="149.0" prefWidth="150.0" promptText="Formation" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="79.0" prefWidth="900.0" styleClass="pane">
+         <children>
+            <GridPane alignment="TOP_CENTER" layoutY="-8.0" maxWidth="1440.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="1426.0" styleClass="buttonGridPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="0.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fitHeight="77.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+                     <image>
+                        <Image url="@../projet-IHM-master%20(2)/projet-IHM-master-copy/img/logo1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="73.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                     <image>
+                        <Image url="@../projet-IHM-master%20(2)/projet-IHM-master-copy/img/logo2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="73.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                     <image>
+                        <Image url="@../projet-IHM-master%20(2)/projet-IHM-master-copy/img/logo4.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="61.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                     <image>
+                        <Image url="@../projet-IHM-master%20(2)/projet-IHM-master-copy/img/logo3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="67.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                     <image>
+                        <Image url="@../projet-IHM-master%20(2)/projet-IHM-master-copy/img/logo5.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="73.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                     <image>
+                        <Image url="@../projet-IHM-master%20(2)/projet-IHM-master-copy/img/logo6.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane minHeight="117.0" minWidth="-Infinity" prefHeight="122.0" prefWidth="900.0" styleClass="label">
+         <children>
+            <Text fill="#e3e3e8" layoutX="349.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Université de Poitiers" textAlignment="CENTER" wrappingWidth="198.96112060546875" AnchorPane.leftAnchor="349.0" AnchorPane.rightAnchor="352.03887939453125">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#e3e3e8" layoutX="307.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Présidence et administration de l'université&#10;15 rue de l'Hôtel Dieu&#10;TSA 7111786073 Poitiers Cedex 9, France&#10;(33) (0)5 49 45 30 00" textAlignment="CENTER" AnchorPane.leftAnchor="307.0" AnchorPane.rightAnchor="308.765625" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
