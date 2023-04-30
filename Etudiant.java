@@ -26,13 +26,7 @@ public class Etudiant {
         return id;
     }
 
-    // public IntegerProperty idProperty() {
-        // return id;
-    // }
-
-    // public void setId(int id) {
-        // this.id.set(id);
-    // }
+ 
 
     public String getNom() {
         return nom;
