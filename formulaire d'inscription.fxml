@@ -101,18 +101,13 @@
                               <TextField fx:id="nom" layoutX="291.0" layoutY="85.0" prefHeight="25.0" prefWidth="237.0" />
                               <TextField fx:id="prenom" layoutX="291.0" layoutY="120.0" prefHeight="25.0" prefWidth="237.0" />
                               <TextField fx:id="naissance" layoutX="291.0" layoutY="156.0" prefHeight="25.0" prefWidth="237.0" />
-                              <Button fx:id="Annuler" layoutX="370.0" layoutY="328.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" text="Annuler">
+                              <Button fx:id="Ajouter" layoutX="281.0" layoutY="330.0" mnemonicParsing="false" onAction="#SubStudent" prefHeight="34.0" prefWidth="80.0" text="Ajouter">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="Ajouter" layoutX="209.0" layoutY="328.0" mnemonicParsing="false" onAction="#valide" prefHeight="34.0" prefWidth="80.0" text="Ajouter">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Button>
-                              <ComboBox fx:id="choix_formation" layoutX="297.0" layoutY="191.0" prefHeight="8.0" prefWidth="137.0" />
-                              <ComboBox fx:id="choix_promo" layoutX="297.0" layoutY="229.0" prefHeight="8.0" prefWidth="137.0" />
+                              <ComboBox fx:id="choix_formation" layoutX="291.0" layoutY="192.0" prefHeight="25.0" prefWidth="137.0" />
+                              <ComboBox fx:id="choix_promo" layoutX="291.0" layoutY="229.0" prefHeight="8.0" prefWidth="137.0" />
                            </children>
                         </AnchorPane>
                      </children></AnchorPane>

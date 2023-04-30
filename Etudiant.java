@@ -2,21 +2,15 @@ import javafx.beans.property.*;
 import java.util.List;
 import java.util.ArrayList;
 
-/**
-** Class etudiant qui permet de définir les differents etudiants inscrit dans la base de donnée de l'université.
-*/
 public class Etudiant {
 
-    private int id; //identifiant unique d'un étudiant
-    private String nom; //nom de l'étudiant
-    private String prenom; //prenom de l'étudiant
-    private String formation; //GPHY, ECMPS, GCELL
-    private String promotion; //M1 ou M2
-    private String naissance; //année de naissance de l'étudiant sous le format suivant: xxxx
+    private int id;
+    private String nom;
+    private String prenom;
+    private String formation;
+    private String promotion; // 1 pour les M1 et 2 pour les M2
+    private String naissance;
 
-/**
-* Constructeur de la classe Etudiant
-*/
     public Etudiant(int id, String nom, String prenom, String formation, String promotion, String naissance) {
         this.id = id;
         this.nom = nom;
@@ -26,15 +20,20 @@ public class Etudiant {
         this.naissance = naissance;
     }
 
-    /**
-    *Getters and setters pour les différentes variable d'instance de la classe Etdiante
-    */
-    
+    // Getters and setters for the properties
+
     public int getId() {
         return id;
     }
 
-  
+    // public IntegerProperty idProperty() {
+        // return id;
+    // }
+
+    // public void setId(int id) {
+        // this.id.set(id);
+    // }
+
     public String getNom() {
         return nom;
     }
@@ -48,6 +47,9 @@ public class Etudiant {
         return prenom;
     }
 
+    // public StringProperty prenomProperty() {
+        // return prenom;
+    // }
 
     public void setPrenom(String prenom) {
         this.prenom = prenom;

@@ -46,6 +46,14 @@ public class SceneController
     }
     
     /**
+     * Set the window shown on the home page
+     * @param event : event change the page
+     */
+    public void setPageModifEtu(ActionEvent event){
+        setPage(event,"page_modif_etu.fxml");
+    }
+    
+    /**
      * Configure the window on the screen to be a new one 
      * @param event : event change the page
      * @param pageFXML : the new page which will be shown on the screen
