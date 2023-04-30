@@ -31,8 +31,7 @@ public class AideController {
     private Button boutton_liste_etu;
     
     /**
-     * When this method is called, it will change the Scene 
-     * to the page d'accueil scene
+     * switchToFormulaire permet de naviguer de la page actuelle vers la page formulaire pour ajouter un étudiant
      */
     @FXML
     public void switchToFormulaire(ActionEvent event)throws IOException {
@@ -41,8 +40,7 @@ public class AideController {
     }
     
     /**
-     * When this method is called, it will change the Scene 
-     * to the page d'accueil scene
+     * switchToAccueil permet de naviguer de la page actuelle vers la page accueil (principale)
      */
     @FXML
     public void switchToAccueil(ActionEvent event)throws IOException {
@@ -51,8 +49,7 @@ public class AideController {
     }
     
     /**
-     * When this method is called, it will change the Scene 
-     * to the page d'accueil scene
+     * switchToListe permet de naviguer de la page actuelle vers la page Liste des etudiants pour ajouter visualiser tous les étudiants
      */
     @FXML
     public void switchToListe(ActionEvent event)throws IOException {
