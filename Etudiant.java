@@ -7,7 +7,7 @@ import java.util.ArrayList;
 */
 public class Etudiant {
 
-    private int id;
+    private int id; //identifiant unique d'un étudiant
     private String nom; //nom de l'étudiant
     private String prenom; //prenom de l'étudiant
     private String formation; //GPHY, ECMPS, GCELL
