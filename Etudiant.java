@@ -2,15 +2,23 @@ import javafx.beans.property.*;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+* Class etudiant qui permet de créer un etudiant
+* groupe:
+* version : 30/04/23
+*/
 public class Etudiant {
 
-    private int id;
-    private String nom;
-    private String prenom;
-    private String formation;
-    private String promotion; // 1 pour les M1 et 2 pour les M2
-    private String naissance;
+    private int id;// identifant unique d'un étudiant inscrit
+    private String nom;//nom étudiant
+    private String prenom;//prenom étudiant
+    private String formation;// formation de l'étudiant GPHY, GCELL ou ECMPS
+    private String promotion; // promotion de l'étudaint M1 ou M2
+    private String naissance;//année de naissance de l'étudiant sous le format xxxx
 
+    /**
+    *Constructeur étudiant
+    */
     public Etudiant(int id, String nom, String prenom, String formation, String promotion, String naissance) {
         this.id = id;
         this.nom = nom;
@@ -20,13 +28,13 @@ public class Etudiant {
         this.naissance = naissance;
     }
 
-    // Getters and setters for the properties
+    /**
+    * Getters and setters des différentes propriétés du constructeur étudiant
+    */
 
     public int getId() {
-        return id;
+        return id; //retourne l'id de l'étudiant
     }
-
- 
 
     public String getNom() {
         return nom;
@@ -40,10 +48,6 @@ public class Etudiant {
     public String getPrenom() {
         return prenom;
     }
-
-    // public StringProperty prenomProperty() {
-        // return prenom;
-    // }
 
     public void setPrenom(String prenom) {
         this.prenom = prenom;
